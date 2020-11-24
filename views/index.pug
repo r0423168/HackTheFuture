@@ -1,5 +1,18 @@
-extends layout
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  link(rel='stylesheet' href='stylesheets/style.css')
 
-block content
-  h1= title
-  p Welcome to #{title}
+  title Chat App
+
+  script.
+    const roomName = "<%= roomName %>"
+  script(defer='' src='http://localhost:3000/socket.io/socket.io.js')
+  script(defer='' src='script.js')
+    
+#message-container
+form#send-container
+  input#message-input(type='text')
+  button#send-button(type='submit') Send
